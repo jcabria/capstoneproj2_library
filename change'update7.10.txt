@@ -1,0 +1,15 @@
+borrow_book2
+line 12
+
+$sql = "SELECT * FROM books_record br JOIN borrow_trans bt ON br.id = bt.book_record_id WHERE book_title_id='$book_title'";
+
+_____________________________________
+transaction
+line 48
+
+$sql = "SELECT * FROM borrow_trans bt JOIN books_record br ON br.id = bt.book_record_id";
+
+(updated name of inputs to match the column in books_record)
+_____________________________________
+
+
