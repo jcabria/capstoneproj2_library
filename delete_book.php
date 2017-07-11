@@ -18,19 +18,15 @@ function display_content() {
 
 		//---------------code for delete button--------------------
 		if (isset($_POST['delete_bk_btn'])) {
-			$book_code =$_POST['book_code'];
-			$book_title =$_POST['book_title'];
-			$author =$_POST['author'];
-			$category =$_POST['category'];
-			$stocks =$_POST['stocks'];
 
-			$query = "DELETE FROM books_record
-						SET book_code='$book_code',
-							book_title='$book'
-						";
+			$query = "DELETE FROM books_record WHERE id = '$id'";
+
+			$result = mysqli_query($conn, $query);
+
+			echo "<div class='alert alert-success'><em>'".$book_title."'</em> book has been deleted successfully.</div>
+					<meta http-equiv='refresh' content='4;url=book_inventory.php'/>
+				";
 		}
-
-
 		//--------------------------------------------------------
 		echo "
 			<div class='container-fluid'>
@@ -40,37 +36,38 @@ function display_content() {
 					<form method='POST' action=''>
 						<div class='input-group'>
 							<span class='input-group-addon'>Book Code</span>
-							<input type='text' class='form-control' name='book_code' value='$book_code' required>
+							<input type='text' class='form-control' name='book_code' value='$book_code' disabled>
 						</div>
 						<br>
 						<div class='input-group'>
 							<span class='input-group-addon'>Book Title</span>
-							<input type='text' class='form-control' name='book_title' value='$book_title' required>
+							<input type='text' class='form-control' name='book_title' value='$book_title' disabled>
 						</div>
 						<br>
 
 						<div class='input-group'>
 							<span class='input-group-addon'>Author</span>
-							<input type='text' class='form-control' name='author' value='$author' required>
+							<input type='text' class='form-control' name='author' value='$author' disabled>
 						</div>
 						<br>
 
 						<div class='input-group'>
 							<span class='input-group-addon'>Category</span>
-							<input type='text' class='form-control' name='category' value='$category' required>
+							<input type='text' class='form-control' name='category' value='$category' disabled>
 						</div>
 						<br>
 
 						<div class='input-group'>
 							<span class='input-group-addon'>Stock</span>
-							<input type='text' class='form-control' name='stocks' value='$stocks' required>
+							<input type='text' class='form-control' name='stocks' value='$stocks' disabled>
 						</div>
 						<br>
 						<hr>
 						<div class='form-group buttons'>
-							<input class='btn btn-default' type='submit' name='delete_bk_btn' value='Delete Book'>
+							<span><h4>Are you sure you want to delete this book??</h4></span><br>
+							<input class='btn btn-default' type='submit' name='delete_bk_btn' value='Yes'>
 
-							<a href='book_inventory.php' class='btn btn-default'>Cancel</a>
+							<a href='book_inventory.php' class='btn btn-default'>No</a>
 						</div>
 					</form>
 				</div>

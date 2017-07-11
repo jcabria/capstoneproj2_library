@@ -13,10 +13,10 @@
 
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav navbar-left"> 
-				<li><a href="borrow_book.php">Borrow Book</a></li>
-				<li><a href="#">Return Book</a></li>
-				<li><a href="transaction.php">Transaction</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="transaction.php">Borrowed Book</a></li>
+				<li><a href="return_inventory.php">Returned Book</a></li>
+				<li><a href="book_inventory.php">Book Record</a></li>
+				<li><a href="student_record.php">Student Record</a></li>
 			</ul>	
 <!-- fdafdsfffffffffffffff -->
 	<?php 

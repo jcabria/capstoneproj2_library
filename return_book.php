@@ -8,7 +8,11 @@
 
 		$id = $_GET['id'];
 
-		$sql = "SELECT * FROM borrow_trans WHERE id='$id'";
+		// $sql = "SELECT * FROM borrow_trans WHERE id='$id'";
+
+		$sql = "SELECT sr.student_number,sr.student_name,br.book_code,br.book_title,br.author,br.stocks,bt.date_borrowed,bt.due_date,br.id,bt.id bt_id FROM borrowed_trans bt JOIN students_record sr ON bt.student_number_id = sr.student_number JOIN books_record br ON bt.book_record_id=br.id ";
+
+		//WHERE bt.id='$id'
 
 		$result = mysqli_query($conn,$sql);
 
@@ -20,21 +24,27 @@
 			//---------------for return book button-------------------
 			if (isset($_POST['return_btn'])) {
 
-				$sql2 = "UPDATE borrow_trans, books_record 
-					SET borrow_trans.stock_id=borrow_trans.stock_id+1, books_record.stocks=books_record.stocks+1 
-					WHERE borrow_trans.book_record_id=books_record.id";
+				// $sql2 = "UPDATE borrow_trans, books_record 
+				// 	SET borrow_trans.stock_id=borrow_trans.stock_id+1, books_record.stocks=books_record.stocks+1 
+				// 	WHERE borrow_trans.book_record_id=books_record.id";
+
+				$sql2 = "UPDATE books_record 
+					SET books_record.stocks=books_record.stocks+1 
+					WHERE books_record.id='$id'";
 
 				mysqli_query($conn, $sql2);	
 
 
 
 				$save = "INSERT INTO returned_trans (student_number_id,book_record_id,date_borrowed,date_returned)
-					VALUES ('$student_number_id','$book_record_id','$date_borrowed', NOW())";
+					VALUES ('$student_number','$id','$date_borrowed', NOW())";
 				mysqli_query($conn, $save);
 
 
 
-				$sql = "DELETE FROM borrow_trans WHERE id = '$id'";
+				// $sql = "DELETE FROM borrow_trans WHERE id = '$id'";
+
+				$sql = "DELETE FROM borrowed_trans WHERE borrowed_trans.id = '$bt_id'";
 				
 				mysqli_query($conn, $sql);
 
@@ -43,10 +53,6 @@
 				// 		extract($row);
 				// 	}
 				// }
-
-
-				
-
 				
 
 				if ($sql && $sql2 && $save == true) {
@@ -69,7 +75,7 @@
 								Student Number
 							</span>
 
-							<input type='text' class='form-control' name='stud_num' value='$student_number_id' disabled>
+							<input type='text' class='form-control' name='stud_num' value='$student_number' readonly>
 						</div>
 						<br>
 
@@ -78,7 +84,7 @@
 								Student Name
 							</span>
 
-							<input type='text' class='form-control' name='stud_name' value='$student_name_id' disabled>
+							<input type='text' class='form-control' name='stud_name' value='$student_name' readonly>
 						</div>
 						<br>
 
@@ -87,7 +93,7 @@
 								Book Code
 							</span>
 
-							<input type='text' class='form-control' name='book_code' value='$book_code_id' disabled>
+							<input type='text' class='form-control' name='book_code' value='$book_code' readonly>
 						</div>
 						<br>
 
@@ -96,7 +102,7 @@
 								Book Title
 							</span>
 
-							<input type='text' class='form-control' name='book_title' value='$book_title_id' disabled>
+							<input type='text' class='form-control' name='book_title' value='$book_title' readonly>
 						</div>
 						<br>
 
@@ -105,7 +111,7 @@
 								Author
 							</span>
 
-							<input type='text' class='form-control' name='author' value='$author_id' disabled>
+							<input type='text' class='form-control' name='author' value='$author' readonly>
 						</div>
 						<br>
 
@@ -114,7 +120,7 @@
 								Stock
 							</span>
 
-							<input type='text' class='form-control' name='stock' value='$stock_id' disabled>
+							<input type='text' class='form-control' name='stock' value='$stocks' readonly>
 						</div>
 						<br>
 
@@ -123,7 +129,7 @@
 								Date Borrowed
 							</span>
 
-							<input type='text' class='form-control' name='date_borrowed' value='$date_borrowed' disabled>
+							<input type='text' class='form-control' name='date_borrowed' value='$date_borrowed' readonly>
 						</div>
 						<br>
 
@@ -132,13 +138,14 @@
 								Due Date
 							</span>
 
-							<input type='text' class='form-control' name='due_date' value='$due_date' disabled>
+							<input type='text' class='form-control' name='due_date' value='$due_date' readonly>
 						</div>
 						<br>
 						<hr>
 						<div class='form-group'>
 							<input type='submit' class='btn btn-default' name='return_btn' value='Return Book'>
-							<input type='submit' class='btn btn-default' name='cancel' value='Cancel'>
+							
+							<a href='transaction.php' class='btn btn-default'> Cancel</a>
 						</div>
 
 					</form>

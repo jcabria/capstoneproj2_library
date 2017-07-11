@@ -230,7 +230,8 @@
 		.search-div,
 		.trans-div,
 		.rtn-invnt-div,
-		.bk-invnt-div {
+		.bk-invnt-div,
+		.stud-record-div {
 			background-color: rgba(255,255,255,0.8);
 			border: 1px solid orange;
 			padding: 15px;

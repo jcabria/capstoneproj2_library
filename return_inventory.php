@@ -51,7 +51,7 @@ function display_content() {
 
 	// $sql = "SELECT * FROM returned_trans";
 
-	$sql = "SELECT * FROM returned_trans rt JOIN students_record sr ON rt.student_number_id=sr.student_number JOIN books_record br ON rt.book_record_id=br.id";
+	$sql = "SELECT * FROM returned_trans rt JOIN students_record sr ON rt.student_number_id=sr.student_number JOIN books_record br ON rt.book_record_id=br.id ORDER BY date_returned DESC";
 
 	$show = mysqli_query($conn, $sql);
 

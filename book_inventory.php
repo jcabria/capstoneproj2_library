@@ -12,9 +12,17 @@ function display_content() {
 				<div class='row'>
 					<form method='POST' action=''>
 						<div class='col-md-6'>
-							<h1>Book Inventory</h1>
-							<a type='button' class='btn btn-default' href=''>Add</a>
-						</div>
+							<h1>Book Inventory</h1>";
+
+						if (isset($_SESSION['username'])) {
+						
+						echo'	<a type="button" class="btn btn-default" href="add_book.php">Add</a>';
+						} else {
+							echo "";
+						}
+
+
+					echo"</div>
 
 						<div class='col-md-6'>
 							<div class='input-group search_trans'>
@@ -43,7 +51,7 @@ function display_content() {
 			</div>
 		</div>";
 
-	$sql = "SELECT * FROM books_record";
+	$sql = "SELECT * FROM books_record ORDER BY book_title ASC";
 
 	$show = mysqli_query($conn, $sql);
 

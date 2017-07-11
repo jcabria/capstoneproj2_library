@@ -23,12 +23,12 @@
 								<span class='input-group-btn'>
 									<select name='search_ddown' class='form-control'>
 										<option disabled selected>Search by:</option>
-										<option value='student_number_id'>Student Number</option>
-										<option value='student_name_id'>Student Name</option>
-										<option value='book_code_id'>Book Code</option>
-										<option value='book_title_id'>Book Title</option>
-										<option value='author_id'>Author</option>
-										<option value='stock_id'>Stock</option>
+										<option value='student_number'>Student Number</option>
+										<option value='student_name'>Student Name</option>
+										<option value='book_code'>Book Code</option>
+										<option value='book_title'>Book Title</option>
+										<option value='author'>Author</option>
+										<option value='stocks'>Stock</option>
 										<option value='date_borrowed'>Date Borrowed</option>
 										<option value='due_date'>Due Date</option>
 									</select>
@@ -45,7 +45,10 @@
 			</div>	
 		</div>"; //end of first container
 
-		$sql = "SELECT * FROM borrow_trans";
+		// $sql = "SELECT * FROM borrow_trans";
+
+		$sql = "SELECT sr.student_number,sr.student_name,br.book_code,br.book_title,br.author,br.stocks,bt.date_borrowed,bt.due_date,bt.id FROM borrowed_trans bt JOIN students_record sr ON bt.student_number_id = sr.student_number JOIN books_record br ON bt.book_record_id=br.id ORDER BY date_borrowed DESC";
+
 		$show = mysqli_query($conn,$sql);
 
 		//---------code for search borrow transaction------------
@@ -53,7 +56,9 @@
 			$search_brw = $_POST['search_brw'];
 			$search_ddown = $_POST['search_ddown'];
 
-			$query = "SELECT * from borrow_trans WHERE $search_ddown LIKE '%$search_brw%'";
+			// $query = "SELECT * from borrow_trans WHERE $search_ddown LIKE '%$search_brw%'";
+
+			$query = "SELECT * FROM borrowed_trans bt JOIN students_record sr ON bt.student_number_id = sr.student_number JOIN books_record br ON bt.book_record_id=br.id WHERE $search_ddown LIKE '%$search_brw%'";
 
 			$result = mysqli_query($conn, $query);
 
@@ -84,19 +89,24 @@
 										extract($row);
 
 										echo "<tr>
-												<td>".$row['student_number_id']."</td>
-												<td>".$row['student_name_id']."</td>
-												<td>".$row['book_code_id']."</td>
-												<td>".$row['book_title_id']."</td>
-												<td>".$row['author_id']."</td>
-												<td>".$row['stock_id']."</td>
+												<td>".$row['student_number']."</td>
+												<td>".$row['student_name']."</td>
+												<td>".$row['book_code']."</td>
+												<td>".$row['book_title']."</td>
+												<td>".$row['author']."</td>
+												<td>".$row['stocks']."</td>
 												<td>".$row['date_borrowed']."</td>
-												<td>".$row['due_date']."</td>
-
-												<td>";
+												<td>".$row['due_date']."</td>";
+											if (isset($_SESSION['username'])) {
+												
+										echo"	<td>";
 												echo'<a type="button" class="btn btn-default" href="return_book.php?id='.$id.'">Return Book</a>';
-										echo"	</td>
-											</tr>";
+										echo"	</td>";
+											} else {
+												echo "<td>Restricted. For Admin Only</td>";
+											}
+
+									echo"	</tr>";
 										}  //end of while
 
 										echo "</tbody>
@@ -137,19 +147,24 @@
 									extract($row);
 
 									echo "<tr>
-											<td>".$row['student_number_id']."</td>
-											<td>".$row['student_name_id']."</td>
-											<td>".$row['book_code_id']."</td>
-											<td>".$row['book_title_id']."</td>
-											<td>".$row['author_id']."</td>
-											<td>".$row['stock_id']."</td>
+											<td>".$row['student_number']."</td>
+											<td>".$row['student_name']."</td>
+											<td>".$row['book_code']."</td>
+											<td>".$row['book_title']."</td>
+											<td>".$row['author']."</td>
+											<td>".$row['stocks']."</td>
 											<td>".$row['date_borrowed']."</td>
-											<td>".$row['due_date']."</td>
+											<td>".$row['due_date']."</td>";
 
-											<td>";
-											echo'<a type="button" class="btn btn-default" href="return_book.php?id='.$id.'">Return Book</a>
-											</td>
-										</tr>';
+										if (isset($_SESSION['username'])) {
+
+									echo"	<td>";
+											echo'<a type="button" class="btn btn-default" href="return_book.php?id='.$id.'">Return Book</a>';
+										echo"</td>";
+										} else {
+											echo "<td>Restricted. For Admin Only</td>";
+										} 
+									echo"</tr>";
 									}  //end of while
 
 									echo "</tbody>

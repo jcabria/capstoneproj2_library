@@ -120,20 +120,15 @@
 
 										echo"
 										<td>";
-										echo'<a type="button" class="btn btn-default" href="borrow_book2.php?title='.$book_title.'"> Borrow </a>';
+										echo'<a type="button" class="btn btn-default" href="borrow_book3.php?title='.$book_title.'"> Borrow </a>';
 
 										echo"</td>
-
-
-
-
 
 										"; //<td><a type='button' class='btn btn-default' href='borrow_book.php?id=$id'> Borrow </a> 
 										// <a type='button' class='btn btn-default' href='return_book.php?id=$id'> Return </a></td>";
 
 										} else {
 											echo "<td>Restricted. For Admin Only</td>";
-
 										}
 
 									echo"</tr>";
