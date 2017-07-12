@@ -22,19 +22,25 @@ function display_content() {
 			$stud_name = $_POST['stud_name'];
 			$grade_level = $_POST['grade_level'];
 
-			$sql = "UPDATE students_record
-						SET student_number='$stud_num',
-							student_name='$stud_name',
-							grade_level='$grade_level'
-						WHERE id='$id'";
+			$query = mysqli_query($conn, "SELECT * FROM students_record WHERE student_number = '".$stud_num."'");
 
-			mysqli_query($conn, $sql);
+			if (mysqli_num_rows($query) > 0) {
+				echo "<div class='alert alert-danger'> Duplicate Student number are not allowed. </div>";
+			} else {
 
-			echo "<div class='alert alert-success'>
-					Student <em>'".$stud_name."'</em> has been updated successfully!
-				</div>
-				<meta http-equiv='refresh' content='4;url=student_record.php'/>";
+				$sql = "UPDATE students_record
+							SET student_number='$stud_num',
+								student_name='$stud_name',
+								grade_level='$grade_level'
+							WHERE id='$id'";
 
+				mysqli_query($conn, $sql);
+
+				echo "<div class='alert alert-success'>
+						Student <em>'".$stud_name."'</em> has been updated successfully!
+					</div>
+					<meta http-equiv='refresh' content='4;url=student_record.php'/>";
+			}
 		}
 		//---------------------------------------------
 

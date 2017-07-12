@@ -27,15 +27,22 @@ function display_content() {
 			$category = $_POST['category'];
 			$stocks = $_POST['stocks'];
 
-			$sql = "INSERT INTO books_record
-						(book_code,book_title,author,category,stocks)
-					VALUES ('$book_code','$book_title','$author','$category','$stocks')";
+			$query = mysqli_query($conn, "SELECT * FROM books_record WHERE book_code = '".$book_code."'");
 
-			$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($query) > 0) {
+				echo "<div class='alert alert-danger'> Entered Book Code already exist.</div>";
+			} else {
 
-			echo "<div class='alert alert-success'><em>'".$book_title."'</em> book has been added successfully</div>
-					<meta http-equiv='refresh' content='4;url=book_inventory.php'/>
-			";
+				$sql = "INSERT INTO books_record
+							(book_code,book_title,author,category,stocks)
+						VALUES ('$book_code','$book_title','$author','$category','$stocks')";
+
+				$result = mysqli_query($conn, $sql);
+
+				echo "<div class='alert alert-success'><em>'".$book_title."'</em> book has been added successfully</div>
+						<meta http-equiv='refresh' content='4;url=book_inventory.php'/>
+				";
+			}
 
 		}
 		//-------------------------------------------------------

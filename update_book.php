@@ -24,22 +24,30 @@ function display_content(){
 			$category =$_POST['category'];
 			$stocks =$_POST['stocks'];
 
-			$query = "UPDATE books_record 
-						SET book_code='$book_code',
-							book_title='$book_title',
-							author='$author',
-							category='$category',
-							stocks='$stocks' 
-						WHERE id='$id'
+			$sql = mysqli_query($conn, "SELECT * FROM books_record WHERE book_code = '".$book_code."'");
+
+			if (mysqli_num_rows($sql) > 0) {
+
+				echo "<div class='alert alert-danger'> Entered book code already exist. Book code should have unique value.</div>";
+			} else {
+
+				$query = "UPDATE books_record 
+							SET book_code='$book_code',
+								book_title='$book_title',
+								author='$author',
+								category='$category',
+								stocks='$stocks' 
+							WHERE id='$id'
+							";
+
+				mysqli_query($conn, $query);
+
+				if ($query == true) {
+					echo "
+						<div class='alert alert-success'><em>'".$book_title."'</em> book has been updated successfully! </div>
+						<meta http-equiv='refresh' content='4;url=book_inventory.php'/>
 						";
-
-			mysqli_query($conn, $query);
-
-			if ($query == true) {
-				echo "
-					<div class='alert alert-success'><em>'".$book_title."'</em> book has been updated successfully! </div>
-					<meta http-equiv='refresh' content='4;url=book_inventory.php'/>
-					";
+				}
 			}
 		}
 

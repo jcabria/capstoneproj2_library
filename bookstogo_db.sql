@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2017 at 04:51 AM
+-- Generation Time: Jul 12, 2017 at 10:19 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -67,7 +67,8 @@ INSERT INTO `books_record` (`id`, `book_code`, `book_title`, `author`, `category
 (25, 'jcp134', 'Oxford English Dictionary', 'Joles Cabs', 'other', 9),
 (28, 'pca512', 'World Almanac', 'Joles Cabs', 'other', 15),
 (31, 'aa', 'aaa', 'aaaa', 'aaaaa', 4),
-(32, 'bb', 'bbb', 'bbbb', 'bbbbb', 10);
+(32, 'bb', 'bbb', 'bbbb', 'bbbbb', 10),
+(36, 'aa1', 'aaa', 'aaaa', 'aaaaa', 4);
 
 -- --------------------------------------------------------
 
@@ -129,7 +130,8 @@ INSERT INTO `returned_trans` (`id`, `student_number_id`, `book_record_id`, `date
 (27, 11111111, 12, '2017-07-11', '2017-07-11'),
 (28, 22222222, 25, '2017-07-11', '2017-07-11'),
 (29, 33333333, 23, '2017-07-12', '2017-07-12'),
-(30, 33333333, 31, '2017-07-12', '2017-07-12');
+(30, 33333333, 31, '2017-07-12', '2017-07-12'),
+(31, 11111111, 1, '2017-07-12', '2017-07-12');
 
 -- --------------------------------------------------------
 
@@ -228,22 +230,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books_record`
 --
 ALTER TABLE `books_record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `borrowed_trans`
 --
 ALTER TABLE `borrowed_trans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `returned_trans`
 --
 ALTER TABLE `returned_trans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT for table `students_record`
 --
 ALTER TABLE `students_record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `users`
 --
