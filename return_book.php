@@ -6,12 +6,13 @@
 	function display_content() {
 		require_once('connection.php');
 
-		$id = $_GET['id'];
+		$id = $_GET['bt-id'];
 
 		// $sql = "SELECT * FROM borrow_trans WHERE id='$id'";
 
-		$sql = "SELECT sr.student_number,sr.student_name,br.book_code,br.book_title,br.author,br.stocks,bt.date_borrowed,bt.due_date,br.id,bt.id bt_id FROM borrowed_trans bt JOIN students_record sr ON bt.student_number_id = sr.student_number JOIN books_record br ON bt.book_record_id=br.id ";
+		$sql = "SELECT sr.student_number,sr.student_name,br.book_code,br.book_title,br.author,br.stocks,bt.date_borrowed,bt.due_date,br.id br_id,bt.id bt_id, bt.book_record_id bt_br_id FROM borrowed_trans bt JOIN students_record sr ON bt.student_number_id = sr.student_number JOIN books_record br ON bt.book_record_id=br.id WHERE bt.id='$id'";
 
+		// WHERE id='$bt_id'
 		//WHERE bt.id='$id'
 
 		$result = mysqli_query($conn,$sql);
@@ -30,14 +31,14 @@
 
 				$sql2 = "UPDATE books_record 
 					SET books_record.stocks=books_record.stocks+1 
-					WHERE books_record.id='$id'";
+					WHERE books_record.id='$bt_br_id'";
 
 				mysqli_query($conn, $sql2);	
 
 
 
 				$save = "INSERT INTO returned_trans (student_number_id,book_record_id,date_borrowed,date_returned)
-					VALUES ('$student_number','$id','$date_borrowed', NOW())";
+					VALUES ('$student_number','$br_id','$date_borrowed', NOW())";
 				mysqli_query($conn, $save);
 
 
@@ -156,13 +157,6 @@
 		}  //end of if num rows
 
 // $sql = "SELECT * FROM books_record br JOIN borrow_trans bt ON br.stocks = bt.stock_id WHERE $search_col_bk LIKE '%$search_bk%'";
-
-
-
-
-
-
-
 
 		echo "this is return book page";
 	}  //end of display_content function

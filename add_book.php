@@ -71,7 +71,7 @@ function display_content() {
 
 						<div class='input-group'>
 							<span class='input-group-addon'>Stock</span>
-							<input type='number' class='form-control' name='stocks' min='0' required>
+							<input type='number' class='form-control' name='stocks' min='1' required>
 						</div>
 						<br>
 						<hr>

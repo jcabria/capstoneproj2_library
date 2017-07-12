@@ -14,6 +14,7 @@
 						<div class='col-md-6'>
 							<h1>Borrow Transaction</h1>
 						</div>
+
 						<div class='col-md-6'>
 							<div class='input-group search_trans'>
 								<span class='input-group-btn'>
@@ -45,7 +46,6 @@
 			</div>	
 		</div>"; //end of first container
 
-		// $sql = "SELECT * FROM borrow_trans";
 
 		$sql = "SELECT sr.student_number,sr.student_name,br.book_code,br.book_title,br.author,br.stocks,bt.date_borrowed,bt.due_date,bt.id FROM borrowed_trans bt JOIN students_record sr ON bt.student_number_id = sr.student_number JOIN books_record br ON bt.book_record_id=br.id ORDER BY date_borrowed DESC";
 
@@ -55,8 +55,6 @@
 		if (isset($_POST['search_brw_btn'])) {
 			$search_brw = $_POST['search_brw'];
 			$search_ddown = $_POST['search_ddown'];
-
-			// $query = "SELECT * from borrow_trans WHERE $search_ddown LIKE '%$search_brw%'";
 
 			$query = "SELECT * FROM borrowed_trans bt JOIN students_record sr ON bt.student_number_id = sr.student_number JOIN books_record br ON bt.book_record_id=br.id WHERE $search_ddown LIKE '%$search_brw%'";
 
@@ -100,7 +98,7 @@
 											if (isset($_SESSION['username'])) {
 												
 										echo"	<td>";
-												echo'<a type="button" class="btn btn-default" href="return_book.php?id='.$id.'">Return Book</a>';
+												echo'<a type="button" class="btn btn-default" href="return_book.php?bt-id='.$id.'">Return Book</a>';
 										echo"	</td>";
 											} else {
 												echo "<td>Restricted. For Admin Only</td>";
@@ -159,7 +157,7 @@
 										if (isset($_SESSION['username'])) {
 
 									echo"	<td>";
-											echo'<a type="button" class="btn btn-default" href="return_book.php?id='.$id.'">Return Book</a>';
+											echo'<a type="button" class="btn btn-default" href="return_book.php?bt-id='.$id.'">Return Book</a>';
 										echo"</td>";
 										} else {
 											echo "<td>Restricted. For Admin Only</td>";
@@ -171,18 +169,10 @@
 								</table>
 							</div>
 						</div>
-					</div>
-						";
-
-				
-
+					</div>";
 
 			}  //end of if-show
 		}  //end of else
-		//   else {
-		//   		echo "em" . $search_brw . "</em> not found in Borrowed Book List.";
-		// }  
-
 
 	}   //end of display content function
 

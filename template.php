@@ -104,9 +104,7 @@
 		}
 
 		.navbar-default .navbar-nav > li > a,
-		.brand-centered .navbar-brand/*,
-		.navbar-default .navbar-nav > li > a:focus,
-		.brand-centered .navbar-brand:focus*/ {
+		.brand-centered .navbar-brand {
 			color: orange;
 		}
 
@@ -155,7 +153,7 @@
 		.navbar-brand {
 			position: absolute;
 			left: 50%;
-			margin-left: -10px;
+			margin-left: -60px;
 			display: block;
 			padding-left: 20px;
 		}
@@ -178,11 +176,6 @@
 		}
 
 		.contents-here .welcome {
-			/*width: 50%;*/
-			/*position: relative;
-			left: 50%;
-			top: 40%;*/
-			/*transform: translate(-50%,-50%);*/
 			border: 4px solid white;
 			padding: 30px 16px;
 			text-align: center;

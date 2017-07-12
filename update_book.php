@@ -37,7 +37,7 @@ function display_content(){
 
 			if ($query == true) {
 				echo "
-					<div class='alert alert-success'> Book has been Updated successfully! Will redirect to Book Inventory Page in 4 seconds... </div>
+					<div class='alert alert-success'><em>'".$book_title."'</em> book has been updated successfully! </div>
 					<meta http-equiv='refresh' content='4;url=book_inventory.php'/>
 					";
 			}

@@ -166,7 +166,8 @@ session_start();
 	 				<br>
 	 			<div class="form-group buttons">
 	 				<input class="btn btn-success btn btn-default" type="submit" name="login" value="Login">
-	 				<a href="register.php">Click here to Register new student!</a>
+	 				<a href="index.php" class="btn btn-danger">Cancel</a>
+	 				<!-- <a href="register.php">Click here to Register new student!</a> -->
 	 			</div>
 	 		</form>
 		</div>

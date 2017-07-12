@@ -35,12 +35,12 @@ function display_content() {
 				$result = mysqli_query($conn, $sql);
 
 				echo "<div class='alert alert-success'>
-						<em>'".$student_name."'</em> has been added successfully</div>
-						<meta http-equiv='refresh' content='4;url=student_record.php'/>
-				";
-				
+						<em>'".$stud_name."'</em> has been added successfully</div>
+						<meta http-equiv='refresh' content='4;url=student_record.php'/>";
+			
 			}
 		}
+		
 		//-------------------------------------------
 
 	echo "

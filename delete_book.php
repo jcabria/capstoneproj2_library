@@ -65,7 +65,7 @@ function display_content() {
 						<hr>
 						<div class='form-group buttons'>
 							<span><h4>Are you sure you want to delete this book??</h4></span><br>
-							<input class='btn btn-default' type='submit' name='delete_bk_btn' value='Yes'>
+							<input class='btn btn-danger' type='submit' name='delete_bk_btn' value='Yes'>
 
 							<a href='book_inventory.php' class='btn btn-default'>No</a>
 						</div>
@@ -74,7 +74,6 @@ function display_content() {
 			</div>";
 
 	}
-
 }
 
 require_once('template.php');

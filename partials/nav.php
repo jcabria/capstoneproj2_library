@@ -23,7 +23,7 @@
 		if (isset($_SESSION['username'])) { ?>
 			<form class="nav navbar-nav navbar-right ryt" method="POST" action="logout.php">
 				
-				<li><a href="logout.php"><span class='glyphicon glyphicon-log-out'></span> Logout</button></a></li>
+				<li><a href="logout.php"><span class='glyphicon glyphicon-log-out'></span> Logout</a></li>
 
 				<!-- <button type="submit" class="btn btn-success" name="ryt-btn">Logout</button> -->
 			</form>

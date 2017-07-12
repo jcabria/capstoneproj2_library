@@ -9,8 +9,6 @@ function display_content() {
 
 	$sql = "SELECT * FROM books_record WHERE book_title='$book_title'";
 
-	// $sql = "SELECT * FROM borrowed_trans bt JOIN students_record sr ON bt.student_record_id = sr.id JOIN books_record br ON bt.book_record_id=br.id WHERE book_title='$book_title'";
-
 	$show = mysqli_query($conn, $sql);
 
 	if (mysqli_num_rows($show) > 0) {
@@ -52,9 +50,9 @@ function display_content() {
 			} else {
 				echo "<div class='alert alert-danger'> No Book Available!</div>";
 			}
-		} else {
+		  } else {
 			echo "<div class='alert alert-danger'>Student Number does not exist</div>";
-		}
+		  }
 		}  //end of borrow btn
 		//--------------------------------------------
 
@@ -113,9 +111,7 @@ function display_content() {
 					</div>
 				</div>";
 	}
-
 }
-
 
 require_once('template.php');
 

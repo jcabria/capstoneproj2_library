@@ -16,11 +16,10 @@ function display_content() {
 
 						if (isset($_SESSION['username'])) {
 						
-						echo'	<a type="button" class="btn btn-default" href="add_book.php">Add</a>';
+							echo'<a type="button" class="btn btn-default" href="add_book.php">Add</a>';
 						} else {
 							echo "";
 						}
-
 
 					echo"</div>
 
@@ -110,9 +109,7 @@ function display_content() {
 					</div>
 				</div>";
 		}
-
 	}
-
 	//------------------------------------------------------------
 	else {
 
@@ -163,7 +160,6 @@ function display_content() {
 	}
 
 }  //end of display content function
-
 
 require_once('template.php');
 

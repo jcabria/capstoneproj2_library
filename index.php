@@ -21,14 +21,11 @@
 						<div class="col-md-4 col-sm-4 col-xs-3"></div>
 
 						<div class="search col-md-6 col-sm-6 col-xs-7">
-
 							<div class="input-group">
 								<span class="input-group-btn">
 									<input type="text" class="form-control" placeholder="Search for books.." name="search-bk">
 								</span>
-							<!-- </div> -->
 
-							<!-- <div class="input-group"> -->
 								<span class="input-group-btn">
 									<select name="search_col_bk" class="form-control">
 										<option disabled selected>Search by:</option>
@@ -38,41 +35,20 @@
 										<option value="category">Category</option>
 									</select> 
 								</span>
-							<!-- </div> -->
 
-							<!-- <div class="input-group"> -->
 								<span class="input-group-btn">
 									<div class="input-group">
 										<input type="submit" class="form-control" name="search-bk-btn" value="search">
-
-										<!-- <button class="btn btn-default" type="button" name="search-bk-btn"><i class="fa fa-search" aria-hidden="true"></i>Go!</button> -->
 									</div>
 									
 								</span>
 							</div>
-
 						</div>
 
 						<div class="col-md-2 col-sm-2 col-xs-2"></div>
 
 					</form>
 				</div>
-
-						
-
-						<!-- <div class="search col-md-4 col-sm-4">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search for students.." name="search-stud">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button" name="search-stud-btn"><i class="fa fa-search" aria-hidden="true"></i>Go!</button>
-								</span>
-							</div>
-						</div>
-
-						<div class="col-md-1 col-sm-1"></div> -->
-
-					
-				<!-- </div>	 end of row -->
 			</div>
 <?php
 
@@ -87,8 +63,6 @@
 			echo "Search Result for <em>$search_bk</em>. Found " .mysqli_num_rows($result). " result. <br><hr>";
 			if (mysqli_num_rows($result)>0) {
 				
-
-				// echo "$book_code <br> $book_title <br> $author <br> $category <br> $stocks" ;
 			echo "
 				<div class='container-fluid search-div'>
 				<div class='container'>
@@ -122,10 +96,7 @@
 										<td>";
 										echo'<a type="button" class="btn btn-default" href="borrow_book3.php?title='.$book_title.'"> Borrow </a>';
 
-										echo"</td>
-
-										"; //<td><a type='button' class='btn btn-default' href='borrow_book.php?id=$id'> Borrow </a> 
-										// <a type='button' class='btn btn-default' href='return_book.php?id=$id'> Return </a></td>";
+										echo"</td>"; 
 
 										} else {
 											echo "<td>Restricted. For Admin Only</td>";
@@ -140,13 +111,10 @@
 				</div>
 				</div>";
 
-
-			
-		}  else {
-			echo "<em>". $search_bk. "</em>" . " not found in library. Please try again.";
-		}
+			}  else {
+				echo "<em>". $search_bk. "</em>" . " not found in library. Please try again.";
+			}
 		}  
-
 
 	}
 

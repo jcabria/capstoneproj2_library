@@ -89,9 +89,9 @@ function display_content() {
 
 								if (isset($_SESSION['username'])) {
 									echo "<td>";
-									echo '<a type="button" class="btn btn-default" href="">Update</a>
+									echo '<a type="button" class="btn btn-default" href="update_stud.php?id='.$id.'">Update</a>
 
-										<a type="button" class="btn btn-default" href="">Delete</a>';
+										<a type="button" class="btn btn-default" href="delete_stud.php?id='.$id.'">Delete</a>';
 									echo"</td>";
 
 									} else {
@@ -133,9 +133,9 @@ function display_content() {
 
 								if (isset($_SESSION['username'])) {
 									echo "<td>";
-									echo '<a type="button" class="btn btn-default" href="">Update</a>
+									echo '<a type="button" class="btn btn-default" href="update_stud.php?id='.$id.'">Update</a>
 
-										<a type="button" class="btn btn-default" href="">Delete</a>';
+										<a type="button" class="btn btn-default" href="delete_stud.php?id='.$id.'">Delete</a>';
 									echo"</td>";
 
 									} else {
@@ -150,9 +150,7 @@ function display_content() {
 			</div>";
 
 		}
-
 	}
-
 }
 
 require_once('template.php');
