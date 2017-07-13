@@ -24,13 +24,6 @@ function display_content(){
 			$category =$_POST['category'];
 			$stocks =$_POST['stocks'];
 
-			$sql = mysqli_query($conn, "SELECT * FROM books_record WHERE book_code = '".$book_code."'");
-
-			if (mysqli_num_rows($sql) > 0) {
-
-				echo "<div class='alert alert-danger'> Entered book code already exist. Book code should have unique value.</div>";
-			} else {
-
 				$query = "UPDATE books_record 
 							SET book_code='$book_code',
 								book_title='$book_title',
@@ -48,7 +41,6 @@ function display_content(){
 						<meta http-equiv='refresh' content='4;url=book_inventory.php'/>
 						";
 				}
-			}
 		}
 
 		//------------------------------------------------------
@@ -60,7 +52,7 @@ function display_content(){
 						<form method='POST' action=''>
 							<div class='input-group'>
 								<span class='input-group-addon'>Book Code</span>
-								<input type='text' class='form-control' name='book_code' value='$book_code' required>
+								<input type='text' class='form-control' name='book_code' value='$book_code' readonly>
 							</div>
 							<br>
 							<div class='input-group'>

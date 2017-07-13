@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2017 at 10:19 AM
+-- Generation Time: Jul 13, 2017 at 04:10 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -45,7 +45,7 @@ INSERT INTO `books_record` (`id`, `book_code`, `book_title`, `author`, `category
 (3, 'fil001', 'Filipino Batikan', 'Feli Simo', 'filipino', 10),
 (4, 'sci001', 'Science: Ecosystem', 'Sayna Yan', 'science', 3),
 (5, 'music001', 'Music and Arts', 'Joles Cabs', 'other', 5),
-(6, 'abc124', 'Midnight for Charlie Bone', 'Jenny Nimmo', 'fiction', 20),
+(6, 'abc124', 'Midnight for Charlie Bone', 'Jenny Nimmo', 'fiction', 19),
 (7, 'def456', 'The last fairy-apple tree', 'Emily Rodda', 'fiction', 12),
 (8, 'ghi789', 'Wrath of the storm', 'Jennifer Nielsen', 'fiction', 7),
 (9, 'jkl1011', 'Private Peaceful', 'Michael Morpurgo', 'novel', 11),
@@ -61,13 +61,13 @@ INSERT INTO `books_record` (`id`, `book_code`, `book_title`, `author`, `category
 (19, 'nop2930', 'Physics II', 'Christopher Nepomuceno', 'science', 8),
 (20, 'qrs3132', 'Chemistry I', 'Jim Pablo', 'science', 5),
 (21, 'tuv3334', 'Trigonometry', 'Jay Reyes', 'math', 8),
-(22, 'wxy3536', 'Literature', 'Enda Saymo', 'english', 15),
+(22, 'wxy3536', 'Literature', 'Enda Saymo', 'english', 16),
 (23, 'zab3738', 'Pagsulat at Pagbasa II', 'Feli Simo', 'filipino', 8),
 (24, 'rel143', 'Guitar Chords and Tabs', 'Joles Cabs', 'other', 17),
 (25, 'jcp134', 'Oxford English Dictionary', 'Joles Cabs', 'other', 9),
 (28, 'pca512', 'World Almanac', 'Joles Cabs', 'other', 15),
-(31, 'aa', 'aaa', 'aaaa', 'aaaaa', 4),
-(32, 'bb', 'bbb', 'bbbb', 'bbbbb', 10),
+(31, 'aa', 'aaa', 'aaaa', 'aaaaa', 5),
+(32, 'bb', 'bbb', 'bbbb', 'bbbbb', 9),
 (36, 'aa1', 'aaa', 'aaaa', 'aaaaa', 4);
 
 -- --------------------------------------------------------
@@ -96,7 +96,8 @@ INSERT INTO `borrowed_trans` (`id`, `student_number_id`, `book_record_id`, `date
 (16, 20170515, 17, '2017-07-11', '2017-07-13'),
 (18, 11111111, 6, '2017-07-11', '2017-07-13'),
 (20, 22222222, 18, '2017-07-11', '2017-07-13'),
-(22, 87654321, 22, '2017-07-12', '2017-07-23');
+(23, 33333333, 6, '2017-07-13', '2017-07-15'),
+(24, 12121212, 32, '2017-07-13', '2017-07-15');
 
 -- --------------------------------------------------------
 
@@ -131,7 +132,8 @@ INSERT INTO `returned_trans` (`id`, `student_number_id`, `book_record_id`, `date
 (28, 22222222, 25, '2017-07-11', '2017-07-11'),
 (29, 33333333, 23, '2017-07-12', '2017-07-12'),
 (30, 33333333, 31, '2017-07-12', '2017-07-12'),
-(31, 11111111, 1, '2017-07-12', '2017-07-12');
+(31, 11111111, 1, '2017-07-12', '2017-07-12'),
+(32, 87654321, 22, '2017-07-12', '2017-07-13');
 
 -- --------------------------------------------------------
 
@@ -154,8 +156,8 @@ INSERT INTO `students_record` (`id`, `student_number`, `student_name`, `grade_le
 (1, 20101865, 'Joleey Babes', '12'),
 (2, 20171434, 'Armi imra', '4'),
 (3, 20170515, 'Cameron Ernst', '1'),
-(4, 20150711, 'Rea Buenaventura', '11'),
-(5, 20140612, 'Myka Telpo', '12'),
+(4, 20150711, 'Reah Buenavents', '11'),
+(5, 20140612, 'Mykah Teps', '12'),
 (6, 20100801, 'Joe Lee', '9'),
 (7, 12345689, 'Jolly Bae', '6'),
 (8, 87654321, 'Mak Doe', '8'),
@@ -163,7 +165,7 @@ INSERT INTO `students_record` (`id`, `student_number`, `student_name`, `grade_le
 (12, 33333333, 'sample 3 student', '3'),
 (13, 22222222, 'dummy student', '2'),
 (14, 12121212, 'Angelyn Ah', '10'),
-(15, 31313131, 'asasasasaah', '1');
+(15, 31313131, 'asasasasaa', '1');
 
 -- --------------------------------------------------------
 
@@ -235,17 +237,17 @@ ALTER TABLE `books_record`
 -- AUTO_INCREMENT for table `borrowed_trans`
 --
 ALTER TABLE `borrowed_trans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `returned_trans`
 --
 ALTER TABLE `returned_trans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `students_record`
 --
 ALTER TABLE `students_record`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `users`
 --

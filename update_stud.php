@@ -22,12 +22,6 @@ function display_content() {
 			$stud_name = $_POST['stud_name'];
 			$grade_level = $_POST['grade_level'];
 
-			$query = mysqli_query($conn, "SELECT * FROM students_record WHERE student_number = '".$stud_num."'");
-
-			if (mysqli_num_rows($query) > 0) {
-				echo "<div class='alert alert-danger'> Duplicate Student number are not allowed. </div>";
-			} else {
-
 				$sql = "UPDATE students_record
 							SET student_number='$stud_num',
 								student_name='$stud_name',
@@ -40,7 +34,6 @@ function display_content() {
 						Student <em>'".$stud_name."'</em> has been updated successfully!
 					</div>
 					<meta http-equiv='refresh' content='4;url=student_record.php'/>";
-			}
 		}
 		//---------------------------------------------
 
@@ -53,7 +46,7 @@ function display_content() {
 						<div class='input-group'>
 							<span class='input-group-addon'>Student Number</span>
 
-							<input type='text' class='form-control' name='stud_num' value='$student_number' required>
+							<input type='text' class='form-control' name='stud_num' value='$student_number' readonly>
 						</div>
 						<br>
 						<div class='input-group'>

@@ -136,6 +136,6 @@ $('#stud_num').blur(function(){
     	$('#myDate').val(today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2));
 
     var tomorrow = new Date();
-    	$('#tomDate').val(tomorrow.getFullYear() + '-' + ('0' + (tomorrow.getMonth() + 1)).slice(-2) + '-' + ('0' + tomorrow.getDate() + 3).slice(-2));
+    	$('#tomDate').val(tomorrow.getFullYear() + '-' + ('0' + (tomorrow.getMonth() + 1)).slice(-2) + '-' + ('0' + (tomorrow.getDate() +2)).slice(-2));
 
 </script>
