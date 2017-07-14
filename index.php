@@ -9,8 +9,9 @@
 				<div class="col-md-3 col-sm-2 col-xs-1"></div>
 				<div class="welcome col-md-6 col-sm-8 col-xs-10">
 					<h1>Welcome to BooksToGo!</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+					<p>"Everything you need for better future and success has already been written. And guess what? All you have to do is go to the library."</p> 
+
+					<p><em>-Henri Frederic Amiel</em></p>
 				</div>
 				<div class="col-md-3 col-sm-2 col-xs-1"></div>
 			</div>
