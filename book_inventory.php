@@ -69,6 +69,9 @@ function display_content() {
 			echo "
 				<div class='container-fluid bk-invnt-div'>
 					<div class='container'>
+						<div>
+							<p><strong>(*Disclaimer: Some book titles and authors are searched from google. Credits to the owner.)</strong></p>
+						</div>
 						<div class='table-responsive'>
 							<table class='table table-bordered table-hover'>
 								<thead>
@@ -117,6 +120,9 @@ function display_content() {
 			echo "
 				<div class='container-fluid bk-invnt-div'>
 					<div class='container'>
+						<div>
+							<p><strong>(*Disclaimer: Some book titles and authors are searched from google. Credits to the owner.)</strong></p>
+						</div>
 						<div class='table-responsive'>
 							<table class='table table-bordered table-hover'>
 								<thead>

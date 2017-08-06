@@ -11,5 +11,7 @@ $sql = "SELECT * FROM borrow_trans bt JOIN books_record br ON br.id = bt.book_re
 
 (updated name of inputs to match the column in books_record)
 _____________________________________
+llc/rda - classification
 
+penalty
 
