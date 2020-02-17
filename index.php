@@ -29,7 +29,8 @@
 
 								<span class="input-group-btn">
 									<select name="search_col_bk" class="form-control">
-										<option disabled selected>Search by:</option>
+										<!-- <option disabled selected>Search by:</option> -->
+										<option value="no_selected">Search by:</option>
 										<option value="book_code">Book Code</option>
 										<option value="book_title">Title</option>
 										<option value="author">Author</option>
@@ -60,61 +61,67 @@
 			$search_col_bk = $_POST['search_col_bk'];
 			$sql = "SELECT * FROM books_record WHERE $search_col_bk LIKE '%$search_bk%'";
 
-			$result = mysqli_query($conn,$sql);
-			echo "Search Result for <em>$search_bk</em>. Found " .mysqli_num_rows($result). " result. <br><hr>";
-			if (mysqli_num_rows($result)>0) {
-				
-			echo "
-				<div class='container-fluid search-div'>
-				<div class='container'>
-					<h1>List of Books</h1>
-					<div class='table-responsive'>
-						<table class='table table-bordered table-hover '>
-							<thead>
-								<tr>
-									<th>Book Code</th>
-									<th>Book Title</th>
-									<th>Author</th>
-									<th>Category</th>
-									<th>Stock Available</th>
-									<th>Action</th>
-								</tr>
-							</thead>
-							<tbody>";
-							while ($row = mysqli_fetch_assoc($result)) {
-							extract($row);
-
-							echo "<tr>
-										<td>" .$row['book_code'] . "</td>
-										<td>" . $row['book_title'] . "</td>
-										<td>" . $row['author'] . "</td>
-										<td>" . $row['category'] . "</td>
-										<td>" . $row['stocks'] . "</td>";
-
-									if (isset($_SESSION['username'])) {
-
-										echo"
-										<td>";
-										echo'<a type="button" class="btn btn-default" href="borrow_book3.php?title='.$book_title.'"> Borrow </a>';
-
-										echo"</td>"; 
-
-										} else {
-											echo "<td>Restricted. For Admin Only</td>";
-										}
-
-									echo"</tr>";
-							}  //end of while
-							echo "</tbody>
-						</table>
-					</div>
+			if ($search_col_bk == "no_selected") {
+				echo "Please select option provided on 'Search by:' drop-down.";
+			} else {
+				$result = mysqli_query($conn,$sql);
+				echo "Search Result for <em>$search_bk</em>. Found " .mysqli_num_rows($result). " result. <br><hr>";
+				if (mysqli_num_rows($result)>0) {
 					
-				</div>
-				</div>";
+				echo "
+					<div class='container-fluid search-div'>
+					<div class='container'>
+						<h1>List of Books</h1>
+						<div class='table-responsive'>
+							<table class='table table-bordered table-hover '>
+								<thead>
+									<tr>
+										<th>Book Code</th>
+										<th>Book Title</th>
+										<th>Author</th>
+										<th>Category</th>
+										<th>Stock Available</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>";
+								while ($row = mysqli_fetch_assoc($result)) {
+								extract($row);
 
-			}  else {
-				echo "<em>". $search_bk. "</em>" . " not found in library. Please try again.";
+								echo "<tr>
+											<td>" .$row['book_code'] . "</td>
+											<td>" . $row['book_title'] . "</td>
+											<td>" . $row['author'] . "</td>
+											<td>" . $row['category'] . "</td>
+											<td>" . $row['stocks'] . "</td>";
+
+										if (isset($_SESSION['username'])) {
+
+											echo"
+											<td>";
+											echo'<a type="button" class="btn btn-default" href="borrow_book3.php?title='.$book_title.'"> Borrow </a>';
+
+											echo"</td>"; 
+
+											} else {
+												echo "<td>Restricted. For Admin Only</td>";
+											}
+
+										echo"</tr>";
+								}  //end of while
+								echo "</tbody>
+							</table>
+						</div>
+						
+					</div>
+					</div>";
+
+				}  else {
+					echo "<em>". $search_bk. "</em>" . " not found in library. Please try again.";
+				}
 			}
+
+			
 		}  
 
 	}

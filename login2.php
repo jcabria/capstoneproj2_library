@@ -22,13 +22,13 @@ session_start();
 			
 				
 			if ($sql == true) {
-				echo "<div class='alert alert-success'>Login Successful! Welcome $role $username! (Will redirect after 4 seconds...)</div>";
+				echo "<div class='alert alert-success'>Login Successful! Welcome $role $username! </div>"; //(Will redirect after 4 seconds...)
 					// <meta http-equiv='refresh' content='5;url=index.php' />";  //used to have 5 seconds delay before redirecting to index.php
 				?>
-					<!-- used to have 4 seconds delay before redirecting to index.php --> 
+					<!-- used to have 3 seconds delay before redirecting to index.php --> 
 					<script> var timer = setTimeout(function() {
 			            window.location='index.php'
-			        }, 4000); </script>
+			        }, 3000); </script>
 			    <?php
 			}
 				
@@ -159,10 +159,10 @@ session_start();
 	 				<input type="password" class="form-control" id="pword" name="password" placeholder="Password">
 	 			</div>
 	 				<br>
-	 			<div class="input-group">
+	 			<!-- <div class="input-group">
 	 				<span class="input-group-addon">Role :</span>
 	 				<input type="text" class="form-control" name="role" value="Admin" disabled>
-	 			</div>
+	 			</div> -->
 	 				<br>
 	 			<div class="form-group buttons">
 	 				<input class="btn btn-success btn btn-default" type="submit" name="login" value="Login">
