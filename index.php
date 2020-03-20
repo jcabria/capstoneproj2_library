@@ -80,9 +80,14 @@
 										<th>Book Title</th>
 										<th>Author</th>
 										<th>Category</th>
-										<th>Stock Available</th>
-										<th>Action</th>
-									</tr>
+										<th>Stock Available</th>";
+									if (isset($_SESSION['username'])) {
+										echo "<th>
+											Action</th>";
+									} else {
+										echo "<th style='display:none;'></th>";
+									}
+								echo "</tr>
 								</thead>
 								<tbody>";
 								while ($row = mysqli_fetch_assoc($result)) {
@@ -104,7 +109,8 @@
 											echo"</td>"; 
 
 											} else {
-												echo "<td>Restricted. For Admin Only</td>";
+												// echo "<td>Restricted. For Admin Only</td>";
+												echo "<td style='display:none;'></td>";
 											}
 
 										echo"</tr>";
