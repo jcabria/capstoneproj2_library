@@ -1,6 +1,20 @@
-# capstoneproj2_library
 
-Login details: <br>
-Admin - jcabs <br>
-Pword - jcabs <br>
+# CP2 Borrow-Return Transaction Site (Mini Library)
 
+<h6>CP2 requirement:</h6>
+<ul> 
+  <li>Dynamic Website</li> 
+</ul>
+
+<h6>Allowed language:</h6>
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Bootstrap</li>
+  <li>PHP</li>
+  <li>MySQL</li>
+</ul>
+
+<br><br>
+<h6>CP2 - made for a coding bootcamp I enrolled with</h6>
+<h6>~~~~~~~2 out of 3 required projects~~~~~~~</h6>
