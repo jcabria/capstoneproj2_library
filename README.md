@@ -15,5 +15,3 @@
   <li>MySQL</li>
 </ul>
 
-<br><br>
-<h6>~~~~~~~2 out of 3 required projects~~~~~~~</h6>
